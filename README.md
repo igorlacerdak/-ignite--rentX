@@ -1,68 +1,99 @@
-# Cadastro de Carro
+# Rentalx
 
-**RF**
+## Sistema que gerencia uma rede de aluguel de veículos
 
-- Deve ser possível cadastrar um novo carro.
-- Deve ser possível listar todas as categorias.
+### API desenvolvida na trilha Ignite da Rocketseat
 
-**RN**
+**RF** => Requisitos Funcionais  
+**RNF** => Requisitos Não Funcionais  
+**RN** => Requisitos de Negócio
 
-- Não deve ser possível cadastrar um carro com uma placa já existente.
-- Não deve ser possível alterar a placa de um carro já cadastrado.
-- O carro deve ser cadastrado, por padrão com disponibilidade.
-- O usuário responsável pelo cadastro deve ser um administrador.
+# Cadastro de carro
 
-# Listagem de Carros
+**RF**  
+[X] Deve ser possível cadastrar um novo carro.
 
-**RF**
+**RN**  
+[X] Não deve ser possível cadastrar carros com placas já existentes.  
+[X] Não deve ser possivel um carro ser cadastrado por um usuário não administrador.  
+[X] O carro deve ser cadastrado com 'disponibilidade' por padrão.  
+[X] O carro deve ser cadastrado por um usuário administrador.
 
-- Deve ser possível listar todos carros disponíveis.
-- Deve ser possível listar todos carros disponíveis pelo nome da categoria.
-- Deve ser possível listar todos carros disponíveis pelo nome da marca.
-- Deve ser possível listar todos carros disponíveis pelo nome do carro.
+# Listagem de carros
 
-**RN**
+**RF**  
+[X] Deve ser possível listar todos os carros disponíveis.  
+[X] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.  
+[X] Deve ser possível listar todos os carros disponíveis pelo nome da marca.  
+[X] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
 
-- O usuário não precisa estar logado no sistema.
+**RN**  
+[X] Não deve ser necessário o usuário estar autenticado no sistema para realizar a listagem dos carros.
 
-# Cadastro de Especificação no Carro
+# Cadastro de Especificação do carro
 
-**RF**
+**RF**  
+[X] Deve ser possível cadastrar uma especificação para um carro.
 
-- Deve ser possível cadastrar uma especificação para um carro.
-- Deve ser possível listar todas as especificações.
-- Deve ser possível listar todos os carros.
+**RN**  
+[X] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.  
+[X] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.  
+[X] Não deve ser possivel cadastrar uma especificação por um usuário não administrador.
 
-**RN**
+# Cadastro de imagens do carro
 
-- Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-- Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-- O usuário responsável pelo cadastro deve ser um administrador.
+**RF**  
+[X] Deve ser possível cadastrar a imagem do carro.  
+[X] Deve ser possível listar todos os carros.
 
-# Cadastro de imagens do Carro
+**RNF**  
+[X] Utilizar o multer para o upload dos arquivos.
 
-**RF**
+**RN**  
+[X] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.  
+[X] Não deve ser possivel cadastrar uma imagem por um usuário não administrador.
 
-- Deve ser possível cadastrar a imagem do carro.
-- Deve ser possível listar todos os carros.
+# Aluguel do carro
 
-**RNF**
+**RF**  
+[X] Deve ser possível cadastrar um aluguel.
 
-- Utilizar o multer para upload dos arquivos.
+**RN**  
+[X] O aluguel deve ter duração mínima de 24 horas.  
+[X] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.  
+[X] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
+[X] O usuário deve estar logado na aplicação.  
+[X] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
 
-**RN**
+# Devolução do carro
 
-- O Usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
-- O usuário responsável pelo cadastro deve ser um administrador.
+**RF**  
+[X] Deve ser possível realizar a devolução de um carro
 
-# Aluguel de Carro
+**RN**  
+[x] Se o carro for devolvido com menos de 2 horas, deverá ser cobrado uma diária completa.  
+[X] Ao realizar a devolução, o carro deverá ser liberado para outro aluguel.  
+[X] Ao realizar a devolução, o usuário deverá ser liberado para outro aluguel.  
+[X] Ao realizar a devolução, deverá ser calculado o total do aluguel.  
+[X] Caso o horário de devolução seja superior ao horário previsto da entrega, deverá ser cobrado multa proporcional aos dias de atraso.  
+[X] Caso exista multa, deverá ser somado ao total do aluguel.  
+[X] O usuário deve estar logado na aplicação.
 
-**RF**
+# Listagem de Alugueis para usuário
 
-- Deve ser possível cadastrar um aluguel.
+**RF**  
+[X] Deve ser possível realizar a busca de todos os alugueis para o usuário
 
-**RN**
+**RN**  
+[X] O usuário deve estar logado na aplicação.
 
-- O aluguel deve ter duração mínima de 24 hora.
-- Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
-- Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
+# Recuperação de senha
+
+**RF**  
+[X] Deve ser possível o usuário recuperar a senha informando o email.  
+[X] O usuário deve receber um email com o passo a passo para a recuperação da senha.  
+[X] O usuário deve conseguir inserir uma nova senha.
+
+**RN**  
+[X] O usuário precisa informar uma nova senha.  
+[X] O link enviado para a recuperação deve expirar em 3 horas.
